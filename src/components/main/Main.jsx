@@ -1,4 +1,4 @@
-import "./style/index.scss";
+import "./style/main.scss";
 import {CompletedTasks} from "./completedTasks";
 import {TaskList} from "./taskList";
 import {useEffect, useState} from "react";
@@ -32,7 +32,7 @@ export const Main = () => {
                 </div>
             </section>
             <section className="main__completed-task">
-                <CompletedTasks/>
+                <CompletedTasks taskList={taskList.filter(item=>item.completed === true)}/>
             </section>
         </main>
     )

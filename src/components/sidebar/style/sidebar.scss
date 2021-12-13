@@ -1,4 +1,18 @@
 .sidebar{
-  height: 60px;
-  background-color: #550DC9;;
+  height: 100%;
+  width: 52px;
+  background-color: #550DC9;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding-top: 90px;
+  .sidebar__menu{
+    background-color: #440BA0;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+
+  }
 }

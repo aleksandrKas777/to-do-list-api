@@ -1,11 +1,12 @@
+import {CompletedTaskItem} from "./comletedTaskItem";
 
 
-export const CompletedTasks = () => {
+export const CompletedTasks = ({taskList}) => {
 
 
     return (
         <div>
-            tasks
+            {taskList.map(item=> <CompletedTaskItem task={item} key={item.id}/>)}
         </div>
     )
 }

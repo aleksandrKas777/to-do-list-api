@@ -2,6 +2,6 @@
 export const TaskItem = ({task}) =>{
 
     return (
-        <div className="foo">{task.title}</div>
+        <div className="main__task">{task.title}</div>
     )
 }

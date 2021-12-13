@@ -1,0 +1,30 @@
+main{
+  padding: 24px ;
+  margin-left: 52px;
+  display: flex;
+  justify-content: space-between;
+
+  section{
+    border: 1px solid red;
+
+  }
+  .main__task{
+    box-sizing: border-box;
+    padding: 16px 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    width: 100%;
+
+  }
+  .main__left-block{
+
+    .main__left-block__input{
+      width: 100%;
+    }
+  }
+
+  .main__completed-task{
+    max-width: 530px;
+  }
+}
