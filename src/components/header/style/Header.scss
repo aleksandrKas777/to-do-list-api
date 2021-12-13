@@ -1,0 +1,47 @@
+header {
+  height: 64px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+
+  .navBar {
+    display: flex;
+    align-items: center;
+    h2{
+      color: #000000;
+      font-family: Open Sans, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    .logo{
+
+      h3{
+        font-family: Roboto, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 6px;
+        line-height: 7px;
+        color: #373737;
+      }
+    }
+  }
+
+  .user{
+    width: 166px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    img{
+      height: 32px;
+      width: 32px;
+    }
+  }
+}
+.foo{
+  border: 1px solid black;
+}
+
