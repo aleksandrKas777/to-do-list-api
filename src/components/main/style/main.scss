@@ -1,30 +1,115 @@
-main{
-  padding: 24px ;
+
+
+main {
+  padding: 24px;
   margin-left: 52px;
   display: flex;
   justify-content: space-between;
-
-  section{
-    border: 1px solid red;
-
+  p{
+    font-family: Open Sans, serif;
+    line-height: 19px;
   }
-  .main__task{
+
+  .main__task {
     box-sizing: border-box;
     padding: 16px 12px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     margin-bottom: 16px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      color: #373737;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-align: left;
+
+    }
+
+    .main__task__left {
+      display: flex;
+      svg{
+        margin-right: 8px;
+      }
+
+    }
+
+    .main__task__right {
+      display: flex;
+    }
+
 
   }
-  .main__left-block{
 
-    .main__left-block__input{
+  .main__left-block {
+    margin-right: 64px;
+    flex: 3;
+
+    .main__left-block__tags {
+      margin-top: 12px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      line-height: 16px;
+      color: #550DC9;
+      background: #FEF6FF;
+      border-radius: 4px;
+      padding: 4px;
+      width: max-content;
+    }
+
+    .main__left-block__input {
       width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+
+      button {
+        width: 50px;
+        height: 40px;
+        padding: 5px 12px;
+        background: #550DC9;
+        border-radius: 4px;
+        border: none;
+        color: #FFFFFF;
+      }
+
+      input {
+        border: 1px solid #ECECEC;
+        border-radius: 4px;
+        margin-right: 8px;
+        flex: 1;
+
+
+        padding-left:12px;
+        ::placeholder {
+          color: #CACACA;
+        }
+      }
     }
   }
 
-  .main__completed-task{
+  .main__completed-task {
+    flex: 2;
     max-width: 530px;
+    p{
+      text-decoration-line: line-through;
+      color: #A3A3A3;
+    }
   }
 }
+.icon-delete{
+  width: 16px;
+  height: 18px;
+}
+
+.icon-edition{
+  width: 20px;
+  height: 20px;
+}
+
+//.icon-animation{
+//  :hover{
+//    transform: scale(3);
+//  }
+//}
