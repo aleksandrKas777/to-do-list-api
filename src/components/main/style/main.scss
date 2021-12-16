@@ -1,11 +1,11 @@
 
-
 main {
   padding: 24px;
   margin-left: 52px;
   display: flex;
   justify-content: space-between;
-  p{
+
+  p {
     font-family: Open Sans, serif;
     line-height: 19px;
   }
@@ -29,7 +29,8 @@ main {
 
     .main__task__left {
       display: flex;
-      svg{
+
+      svg {
         margin-right: 8px;
       }
 
@@ -44,7 +45,7 @@ main {
 
   .main__left-block {
     margin-right: 64px;
-    flex: 3;
+    flex: 5;
 
     .main__left-block__tags {
       margin-top: 12px;
@@ -81,7 +82,8 @@ main {
         flex: 1;
 
 
-        padding-left:12px;
+        padding-left: 12px;
+
         ::placeholder {
           color: #CACACA;
         }
@@ -90,26 +92,74 @@ main {
   }
 
   .main__completed-task {
-    flex: 2;
+    flex: 3;
     max-width: 530px;
-    p{
+
+    p {
       text-decoration-line: line-through;
       color: #A3A3A3;
     }
   }
+
 }
-.icon-delete{
+
+.icon-delete {
   width: 16px;
   height: 18px;
+  margin-left: 5px;
 }
 
-.icon-edition{
+.icon-edition {
   width: 20px;
   height: 20px;
+  margin: 0 12px 0 12px;
 }
 
-//.icon-animation{
-//  :hover{
-//    transform: scale(3);
-//  }
-//}
+.icon-animation {
+  :hover {
+    box-shadow: 0 0 24px 4px rgba(82, 0, 255, 0.2);
+    background-color: rgba(82, 0, 255, 0.2);
+  }
+}
+
+h4 {
+  font-family: Open Sans, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #373737;
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 1100px) {
+  main {
+    .main__left-block {
+      margin-right: 30px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 950px) {
+  main {
+    .main__left-block {
+      margin-right: 20px;
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    flex-direction: column;
+
+    .main__left-block {
+      margin-right: 0;
+    }
+
+    .main__completed-task {
+      max-width: 100%;
+    }
+  }
+
+}
