@@ -39,7 +39,7 @@ export const CompletedTaskItem = ({task, deleteTask, completeTask}) => {
     return (
         <div className="main__task">
             <div className="main__task__left">
-                <div className="icon-animation" onClick={()=>completeTask(task.id, task.completed)}>
+                <div className="icon-animation" onClick={() => completeTask(task.id, task.completed)}>
                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="0.5" y="1" width="15" height="15" rx="3.5" fill="#550DC9" stroke="#550DC9"/>
                         <path d="M6.39645 12.0821L3.14644 8.83208C2.95119 8.63683 2.95119 8.32025 3.14644 8.12497L3.85353

@@ -42,7 +42,7 @@ export const Main = () => {
             });
 
     }
-    // styleInputValidation = {borderColor: "red"}
+
     const inputNewTaskClear = (e) => {
         if (newTask !== "") {
             addTask(e)
