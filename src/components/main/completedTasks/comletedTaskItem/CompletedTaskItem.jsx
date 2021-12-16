@@ -1,6 +1,6 @@
 export const CompletedTaskItem = ({task, deleteTask, completeTask}) => {
 
-    const iconDelete = <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    const iconDelete = <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10.6667 17.6665H5.33333C4.44928 17.6665 3.60143 17.3153 2.97631 16.6902C2.35119 16.0651
                     2 15.2172 2 14.3332V6.33317C2 6.15636 2.07024 5.98679 2.19526 5.86177C2.32029 5.73674 2.48986
                     5.6665 2.66667 5.6665C2.84348 5.6665 3.01305 5.73674 3.13807 5.86177C3.2631 5.98679 3.33333 6.15636

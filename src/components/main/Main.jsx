@@ -7,8 +7,13 @@ import {useEffect, useState} from "react";
 export const Main = () => {
     const [taskList, setTaskList] = useState([]);
     const [newTask, setInputNewTask] = useState('');
+    const [btnInput, setBtnInput] = useState('add');
+    const [idTaskEdit, setIdTaskEdit] = useState(0);
+    const [validationInput, setValidationInput] = useState(true);
 
     const urlApi = "https://jsonplaceholder.typicode.com/todos/";
+
+    let styleInputValidation = {borderColor: "red"};
 
     useEffect(() => {
 
@@ -30,8 +35,39 @@ export const Main = () => {
             },
         })
             .then((response) => response.json())
-            .then((json) => setTaskList([...taskList, json]));
+            .then((json) => {
+                setInputNewTask('')
+                return setTaskList([...taskList, json])
 
+            });
+
+    }
+    // styleInputValidation = {borderColor: "red"}
+    const inputNewTaskClear = (e) => {
+        if (newTask !== "") {
+            addTask(e)
+            setInputNewTask('');
+        } else {
+            setValidationInput(false);
+        }
+    };
+
+    const keyPress = (e) => {
+        if (newTask !== "") {
+            const code = e.keyCode || e.which;
+            if (code === 13) {
+                btnInput === 'add' ? addTask(newTask) : editTaskSave(newTask);
+
+            }
+        } else {
+            setValidationInput(false);
+        }
+    };
+    const inputNewTask = (e) => {
+        setInputNewTask(e.target.value);
+        if (newTask !== "") {
+            setValidationInput(true);
+        }
     }
 
     const deleteTask = (id) => {
@@ -55,29 +91,60 @@ export const Main = () => {
             .then((json) => setTaskList([...taskList.filter(item => item.id !== id), json]));
     }
 
-    const inputNewTask = (e) => {
-        setInputNewTask(e.target.value);
+    const editTask = (id, task) => {
+        setInputNewTask(task);
+        setBtnInput('save');
+        setIdTaskEdit(id);
+    }
+    const editTaskSave = (task) => {
+        if (newTask !== "") {
+            fetch(urlApi + idTaskEdit, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    title: task,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => setTaskList([...taskList.map(item => item.id === idTaskEdit ? json : item
+                )]));
+            setInputNewTask('')
+            setBtnInput('add')
+        } else {
+            setValidationInput(false);
+        }
+    }
+    const filterTaskList = (bool) => {
+        return taskList.filter(item => item.completed === bool);
     }
 
     return (
         <main>
             <section className="main__left-block">
                 <div className="main__left-block__input">
-                    <input placeholder="+ Add a task, press Enter to save" onChange={inputNewTask}/>
-                    <button onClick={() => addTask(newTask)}>add</button>
+                    <input style={!validationInput ? styleInputValidation : null} value={newTask}
+                           placeholder="+ Add a task, press Enter to save"
+                           onKeyPress={(e) => keyPress(e)} onChange={inputNewTask}/>
+                    <button onClick={() => {
+                        btnInput === 'add' ? inputNewTaskClear(newTask) : editTaskSave(newTask)
+
+                    }}>{btnInput}</button>
                 </div>
                 <div className="main__left-block__tags">
-                    Total: {taskList.length}
+                    Total:{taskList.length}
+
                 </div>
                 <div className="main__left-block__all-tasks">
 
-                    <TaskList taskList={taskList.filter(item => item.completed === false)} deleteTask={deleteTask}
-                              completeTask={completeTask}/>
+                    <TaskList taskList={filterTaskList(false)} deleteTask={deleteTask}
+                              completeTask={completeTask} editTask={editTask}/>
 
                 </div>
             </section>
             <section className="main__completed-task">
-                <CompletedTasks taskList={taskList.filter(item => item.completed === true)} deleteTask={deleteTask}
+                <CompletedTasks taskList={filterTaskList(true)} deleteTask={deleteTask}
                                 completeTask={completeTask}/>
             </section>
         </main>

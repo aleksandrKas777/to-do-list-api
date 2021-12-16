@@ -1,4 +1,4 @@
-export const TaskItem = ({task, deleteTask, completeTask}) => {
+export const TaskItem = ({task, deleteTask, completeTask, editTask}) => {
     const iconDelete = <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10.6667 17.6665H5.33333C4.44928 17.6665 3.60143 17.3153 2.97631 16.6902C2.35119 16.0651
                     2 15.2172 2 14.3332V6.33317C2 6.15636 2.07024 5.98679 2.19526 5.86177C2.32029 5.73674 2.48986
@@ -59,7 +59,7 @@ export const TaskItem = ({task, deleteTask, completeTask}) => {
                 </p>
             </div>
             <div className="main__task__right">
-                <div className="icon-edition icon-animation" >{iconEdition}</div>
+                <div className="icon-edition icon-animation" onClick={()=>editTask(task.id, task.title)}>{iconEdition}</div>
                 <div className="icon-delete icon-animation" onClick={()=>deleteTask(task.id)}>{iconDelete}</div>
             </div>
 
